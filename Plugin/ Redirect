@@ -3,7 +3,7 @@
 #!icon=https://img.freepik.com/premium-vector/safari-icon-vector-image-can-be-used-adventure_120816-374407.jpg
 
 [Script]
-http-request ^https:\/\/www\.google\.cn\/search script-path=https://github.com/z-jinke/Loon/raw/refs/heads/main/Js/Google.js, requires-body=true, timeout=10, tag=定向处理
+http-request ^https:\/\/www\.google\.cn\/search script-path=https://github.com/z-jinke/Loon/raw/refs/heads/main/Js/Google.js, requires-body=true, tag=定向处理
 
 [MitM]
 hostname=www.google.cn
