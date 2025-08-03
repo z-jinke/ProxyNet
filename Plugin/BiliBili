@@ -4,7 +4,7 @@
 
 [Argument]
 airborne=switch, true, false, tag=关闭视频广告
-purifyTopReplies=switch, true, false, tag关闭评论广告
+purifyTopReplies=switch, true, false, tag=关闭评论广告
 purifyWebpage=switch, true, false, tag=关闭直播广告
 
 [Rewrite]
