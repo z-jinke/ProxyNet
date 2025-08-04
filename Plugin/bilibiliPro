@@ -3,9 +3,9 @@
 #!icon=https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/BilibiliPink.png
 
 [Argument]
-airborne=switch, true, false, tag=关闭视频广告
-purifyTopReplies=switch, true, false, tag=关闭评论广告
-purifyWebpage=switch, true, false, tag=关闭直播广告
+airborne=switch, true, false, tag=屏蔽视频广告
+purifyTopReplies=switch, true, false, tag=屏蔽评论广告
+purifyWebpage=switch, true, false, tag=屏蔽直播广告
 
 [Rewrite]
 ^https:\/\/(app|api)\.bilibili\.com\/x\/(v2\/splash\/show|vip\/ads) mock-response-body data-type=json status-code=200 
