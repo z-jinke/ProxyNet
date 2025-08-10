@@ -1,4 +1,4 @@
-// 引用Maasea脚本二次修改让 QuantumultX 不传入参数也可以用
+// 引用Maasea脚本二次修改让 QuantumultX 不传入参数也可以用'屏蔽短视频'屏蔽音乐选段'默认翻译中文'
 
 (() => {
   var $r = Object.defineProperty;
@@ -6535,8 +6535,8 @@
     }
     decodeArgument() {
       let e = {
-        lyricLang: "zh-Hant",
-        captionLang: "zh-Hant",
+        lyricLang: "zh-Hans",
+        captionLang: "zh-Hans",
         blockUpload: !0,
         blockImmersive: !0,
         blockShorts: !0,
