@@ -37,25 +37,21 @@ if (/^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
   let obj = JSON.parse(body);
   delete obj.data.modular_vip_section;
   obj.data.show_creative = 0;
-  obj.data.sections_v2 = obj.data.sections_v2
-    .map(section => {
-      if (section.button) delete section.button;
-      if (section.title === "推荐服务") {
-        delete section.title;
-        section.items = section.items.filter(item => [396, 397, 3072, 2830].includes(item.id));
-      } else if (section.title === "更多服务") {
-        delete section.title;
-        section.items = section.items
-          .filter(item => [407, 410].includes(item.id))
-          .map(item => {
-            if (item.id === 407) item.title = "客服中心";
-            else if (item.id === 410) item.title = "个人设置";
-            return item;
-          });
-      }
-      return section;
-    })
-    .filter(section => section.items.length > 0);
+  obj.data.sections_v2 = obj.data.sections_v2.map(section => {
+    if (section.button) delete section.button;
+    if (section.title === "推荐服务") {
+      delete section.title;
+      section.items = section.items.filter(item => [396, 397, 3072, 2830].includes(item.id));
+    } else if (section.title === "更多服务") {
+      delete section.title;
+      section.items = section.items.filter(item => [407, 410].includes(item.id)).map(item => {
+        if (item.id === 407) item.title = "客服中心";
+        else if (item.id === 410) item.title = "个人设置";
+        return item;
+      });
+    }
+    return section;
+  }).filter(section => section.items.length > 0);
   body = JSON.stringify(obj);
 } else if (/^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\/ipad\?/.test(url)) {
   let obj = JSON.parse(body);
@@ -63,18 +59,6 @@ if (/^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list/.test(url)) {
   obj.data.ipad_more_sections = obj.data.ipad_more_sections.filter(s => ![1070, 965].includes(s.id));
   delete obj.data.ipad_upper_sections;
   body = JSON.stringify(obj);
-} else if (/^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus$/.test(url)) {
-  let base64 = "AAAAABMKEQgCEgl0ZWVuYWdlcnMgAioA";
-  $done({ body: base64, base64: true });
-  return;
-} else if (/^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$/.test(url)) {
-  let base64 = "AAAAACkaHeaQnOe0ouinhumikeOAgeeVquWJp+aIlnVw5Li7IgAoAToAQgBKAA==";
-  $done({ body: base64, base64: true });
-  return;
-} else if (/^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.view\.v1\.View\/TFInfo$/.test(url)) {
-  let base64 = "AAAAAAIIAQ==";
-  $done({ body: base64, base64: true });
-  return;
 }
 
 $done({ body });
