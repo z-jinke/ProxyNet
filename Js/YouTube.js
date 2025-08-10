@@ -1,4 +1,4 @@
-// 引用Maasea脚本为二次修改让QuantumultX不传入参数也可以用
+// 引用Maasea脚本二次修改让 QuantumultX 不传入参数也可以用
 
 (() => {
   var $r = Object.defineProperty;
@@ -6535,8 +6535,8 @@
     }
     decodeArgument() {
       let e = {
-        lyricLang: "true",
-        captionLang: "true",
+        lyricLang: "zh-Hant",
+        captionLang: "zh-Hant",
         blockUpload: !0,
         blockImmersive: !0,
         blockShorts: !0,
