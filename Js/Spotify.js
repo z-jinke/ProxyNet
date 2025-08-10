@@ -666,13 +666,13 @@
         "ios-system-your-plan-sidedrawer" === l && "is_row_enabled" === t
           ? (console.log("ios-system-your-plan-sidedrawer"),
             console.log(i),
-            (i.boolValue.value = !1))
+            (i.boolValue.value = !0))
           : e.tab && "tab_configuration" === t && "ios-feature-navigation" === l
             ? (i.enumValue.value = "")
             : e.useractivity ||
               "is_useractivity_sharing_enabled" !== t ||
               "ios-feature-share" !== l ||
-              (i.boolValue.value = !1);
+              (i.boolValue.value = !0);
       }
     }
     try {
