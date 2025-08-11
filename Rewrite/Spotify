@@ -1,0 +1,7 @@
+// 2025.8.11
+
+^https:\/\/(gae2-spclient|guc3-spclient|spclient\.wg)\.spotify\.com(:443)?\/artistview\/v1\/artist\/(.*)&platform=iphone url 307 https://$1.spotify.com/artistview/v1/artist/$3&platform=ipad
+^https:\/\/(gae2-spclient|guc3-spclient|spclient\.wg)\.spotify\.com(:443)?\/pendragon\/ url reject-200
+^https:\/\/[a-zA-Z0-9._-]+\.spotify\.com(:\d+)?\/(bootstrap\/v\d\/bootstrap|user-customization-service\/v1\/customize)$ url script-response-body https://github.com/z-jinke/ProxyNet/raw/refs/heads/main/Js/Spotify.js
+
+hostname = *.spotify.com
