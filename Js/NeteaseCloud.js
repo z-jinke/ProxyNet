@@ -900,32 +900,31 @@
           (s.data.buttonTitle = {}));
         break;
       case "/link/home/framework/tab":
-        
-        let R = [],
-          v = !1;
-        if (ae())
-  try {
-    try {
-      D = JSON.parse($argument);
-    } catch {
-      D = $argument;
-    }
-
-    // 强制笔记（DT）和发现（FX）为 true
-    D.DT = 1;
-    D.FX = 1;
-
-    let i = {
-      MY: "\u6F2B\u6E38",
-      DT: "\u7B14\u8BB0",
-      FX: "\u53D1\u73B0",
-    };
-    R = Object.keys(D)
-      .filter((y) => D[y] == 1)
-      .map((y) => i[y]);
-  } catch {
-    v = !0;
-  }          
+    let R = [],
+        v = !1;
+    if (ae())
+      try {
+        try {
+          D = JSON.parse($argument);
+        } catch {
+          D = $argument;
+        }
+        // 新增：设置默认值，只赋值未定义字段，不改变已存在的值
+        if (typeof D === 'object' && D !== null) {
+          if (D.FX === undefined) D.FX = 1;
+          if (D.DT === undefined) D.DT = 1;
+        }
+        let i = {
+          MY: "漫游",
+          DT: "笔记",
+          FX: "发现",
+        };
+        R = Object.keys(D)
+          .filter((y) => D[y] == 1)
+          .map((y) => i[y]);
+      } catch {
+        v = !0;
+      }
         else v = !0;
         v && (R = ["\u6F2B\u6E38"]),
           s.data?.commonResourceList &&
