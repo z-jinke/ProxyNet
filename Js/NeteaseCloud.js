@@ -901,30 +901,25 @@
         break;
       case "/link/home/framework/tab":
         let R = [],
-            v = !1;
-        if (ae())
-            try {
-             if (!$argument) {
-               D = { DT: true, FX: true };
-             } else {
-            try {
-               D = JSON.parse($argument);
-             } catch {
-               D = { DT: true, FX: true };
-               v = !0; 
-             }
-           }
-           let i = {
-             MY: "\u6F2B\u6E38",
-             DT: "\u7B14\u8BB0",
-             FX: "\u53D1\u73B0",
-           };
-           R = Object.keys(D)
-            .filter((y) => D[y] == 1 || D[y] === true)
-            .map((y) => i[y]);
-         } catch {
-           v = !0;
-         }
+    v = !1;
+if (ae())
+  try {
+    try {
+      D = JSON.parse($argument);
+    } catch {
+      D = { DT: true, FX: true };
+    }
+    let i = {
+      MY: "\u6F2B\u6E38",
+      DT: "\u7B14\u8BB0",
+      FX: "\u53D1\u73B0",
+    };
+    R = Object.keys(D)
+      .filter((y) => D[y] == 1)
+      .map((y) => i[y]);
+  } catch {
+    v = !0;
+  }
         else v = !0;
         v && (R = ["\u6F2B\u6E38"]),
           s.data?.commonResourceList &&
