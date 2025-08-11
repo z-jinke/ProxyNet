@@ -900,15 +900,21 @@
           (s.data.buttonTitle = {}));
         break;
       case "/link/home/framework/tab":
+        
         let R = [],
-    v = !1;
-if (ae())
+          v = !1;
+        if (ae())
   try {
     try {
       D = JSON.parse($argument);
     } catch {
-      D = { DT: true, FX: true };
+      D = $argument;
     }
+
+    // 强制笔记（DT）和发现（FX）为 true
+    D.DT = 1;
+    D.FX = 1;
+
     let i = {
       MY: "\u6F2B\u6E38",
       DT: "\u7B14\u8BB0",
@@ -919,7 +925,7 @@ if (ae())
       .map((y) => i[y]);
   } catch {
     v = !0;
-  }
+  }          
         else v = !0;
         v && (R = ["\u6F2B\u6E38"]),
           s.data?.commonResourceList &&
