@@ -1,5 +1,8 @@
 // 2025.8.11
 
+^https:\/\/api\.bilibili\.com\/pgc\/view\/v2\/app\/season\? url jsonjq-response-body del(.data.payment)
+^https:\/\/api\.bilibili\.com\/x\/pd-proxy\/tracker\? url jsonjq-response-body .data[][]?="chat.bilibili.com:3478"
+^(https:\/\/api\.bilibili\.com\/pgc\/page\/channel\?.*)(&mobi_app=iphone)(&.*)$ url 307 $1$2_i$3
 ^https:\/\/(app|api)\.bilibili\.com\/x\/(v2\/splash\/show|vip\/ads) url reject-200
 ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list url script-response-body https://github.com/z-jinke/ProxyNet/raw/refs/heads/main/Js/BiliBili.js
 ^https:\/\/app\.bilibili\.com\/x\/v2\/search url script-response-body https://github.com/z-jinke/ProxyNet/raw/refs/heads/main/Js/BiliBili.js
@@ -9,7 +12,5 @@
 ^https:\/\/api\.bilibili\.com\/pgc\/page\/channel\? url script-response-body https://github.com/z-jinke/ProxyNet/raw/refs/heads/main/Js/BiliBili.js
 ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\? url script-response-body https://github.com/z-jinke/ProxyNet/raw/refs/heads/main/Js/BiliBili.js
 ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\/ipad\? url script-response-body https://github.com/z-jinke/ProxyNet/raw/refs/heads/main/Js/BiliBili.js
-
-^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$ url script-response-body https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.protobuf.response.js
 
 hostname = app.bilibili.com,api.bilibili.com,grpc.biliapi.net
