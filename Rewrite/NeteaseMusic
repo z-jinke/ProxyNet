@@ -1,0 +1,7 @@
+// 2025.8.11
+
+^https:\/\/interface(\d)?\.music\.163\.com\/(w?eapi\/(resource-exposure\/)?activity|e?api\/(comment\/feed\/inserted\/resources|vipmall\/couponcfg\/get|sp\/flow\/popup\/query|content\/activity\/music\/jar\/template\/list)) url reject-200
+^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/(batch|ad\/loading\/(get|current)|ad\/get|link\/(position\/show\/resource|scene\/show\/resource)|search\/(default\/keyword\/list|rcmd\/keyword\/get|chart\/list|chart\/detail|suggest\/keyword\/get|specialkeyword\/get)) url script-response-body https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
+^https:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/(home\/framework\/tab|page\/discovery\/resource\/show) url script-response-body https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
+
+hostname = interface*.music.163.com
