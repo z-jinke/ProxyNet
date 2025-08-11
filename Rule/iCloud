@@ -46,9 +46,8 @@ DOMAIN-SUFFIX,swscan.apple.com
 DOMAIN-SUFFIX,updates-http.cdn-apple.com
 DOMAIN-SUFFIX,suconfig.apple.com
 
-# Siri / Apple Intelligence / Spotlight
-DOMAIN-SUFFIX,guzzoni.apple.com
-DOMAIN-SUFFIX,smoot.apple.com
+DOMAIN-SUFFIX,icloud.com
+DOMAIN-SUFFIX,apple.com
 
 # iCloud Private Relay
 DOMAIN-SUFFIX,apple-relay.apple.com
