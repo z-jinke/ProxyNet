@@ -2,7 +2,7 @@
 
 ^https:\/\/(app|api)\.bilibili\.com\/(x\/(v2\/splash\/show|vip\/ads|v\d\/search\/defaultwords)|pgc\/activity\/deliver\/material\/receive|x\/vip\/ads\/material\/report|pgc\/season\/player\/cards|pgc\/season\/player\/ogv\/cards) url reject-200
 ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list url jsonjq-response-body .data.list[]|=(.duration=0|.begin_time=1893427200|.end_time=1893427200)
-^https:\/\/app\.bilibili\.com\/x\/v2\/search url jsonjq-response-body data|=map(select(.type!="recommend"))
+^https:\/\/app\.bilibili\.com\/x\/v2\/search url jsonjq-response-body .data|=map(select(.type!="recommend"))
 ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index url jsonjq-response-body .data.items|=map(select(.goto=="av" and .card_goto=="av"))
 ^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab url jsonjq-response-body .data.tab|=map(select(.id==40 or .id==41 or .id==3502 or .id==3503))|.data.bottom|=map(select(.id==177 or .id==179 or .id==181))|.data.top|=map(select(.id==3510))|.data.top_more=[]
 ^https:\/\/api\.bilibili\.com\/pgc\/page\/cinema\/tab\? url jsonjq-response-body .result.modules|=map(select(.module_id!=1455 and .module_id!=1611 and .module_id!=292))
