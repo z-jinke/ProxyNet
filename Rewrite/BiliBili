@@ -1,6 +1,5 @@
 // 2025.8.11
 
-^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/(bilibili\.app\.view\.v1\.View\/TFInfo|bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus|bilibili\.app\.interface\.v1\.Search\/DefaultWords)$ url reject-200
 ^https:\/\/(app|api)\.bilibili\.com\/(x\/(v2\/splash\/show|vip\/ads|v\d\/search\/defaultwords)|pgc\/activity\/deliver\/material\/receive|x\/vip\/ads\/material\/report|pgc\/season\/player\/cards|pgc\/season\/player\/ogv\/cards) url reject-200
 ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list url jsonjq-response-body .data.list[]|=(.duration=0|.begin_time=1893427200|.end_time=1893427200)
 ^https:\/\/app\.bilibili\.com\/x\/v2\/search url jsonjq-response-body .data|=map(select(.type!="recommend"))
@@ -13,4 +12,4 @@
 ^https:\/\/api\.bilibili\.com\/x\/pd-proxy\/tracker\? url jsonjq-response-body .data[][]?="stun.chat.bilibili.com:3478"
 ^https:\/\/api\.bilibili\.com\/pgc\/view\/v2\/app\/season\? url jsonjq-response-body del(.data.payment)
 
-hostname = app.bilibili.com,api.bilibili.com,grpc.biliapi.net
+hostname = app.bilibili.com,api.bilibili.com
