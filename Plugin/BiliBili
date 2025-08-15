@@ -1,5 +1,5 @@
 #!name = 哔哩哔哩
-#!desc = 过滤iPhone+iPad客户端广告
+#!desc = 过滤客户端广告
 #!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/BilibiliPink.png
 #!date = 2025-08-16
 
@@ -12,7 +12,6 @@
 ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.view\.v1\.View\/TFInfo$ mock-response-body data-type=base64 data="AAAAAAIIAQ==" mock-data-is-base64=true
 ^https:\/\/api\.bilibili\.com\/x\/pd-proxy\/tracker\? response-body-json-jq '.data[][]?="stun.chat.bilibili.com:3478"'
 ^https:\/\/api\.bilibili\.com\/pgc\/view\/v2\/app\/season\? response-body-json-jq 'del(.data.payment)'
-^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2\? response-body-json-jq jq-path="https://raw.githubusercontent.com/sooyaaabo/Loon/main/JQLang/Bilibili/Bilibili.tab.jq"
 
 ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list response-body-json-jq '.data.list[]|=(.duration=0|.begin_time=1893427200|.end_time=1893427200)'
 ^https:\/\/app\.bilibili\.com\/x\/v2\/search response-body-json-jq '.data|=map(select(.type!="recommend"))'
@@ -24,4 +23,4 @@
 ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\/ipad\? response-body-json-jq '.data.ipad_recommend_sections|=map(select(.id!=758 and .id!=759 and .id!=760 and .id!=792 and .id!=793 and .id!=2542 and .id!=794))|.data.ipad_more_sections|=map(select(.id!=1070 and .id!=965)|if .id==798 then .title="我的设置" | . else . end)|del(.data.ipad_upper_sections)'
 
 [MitM]
-hostname = grpc.biliapi.net, app.bilibili.com, api.bilibili.com, api.live.bilibili.com, live.bilibili.com, line3-h5-mobile-api.biligame.com
+hostname = grpc.biliapi.net, app.bilibili.com, api.bilibili.com, api.live.bilibili.com, line3-h5-mobile-api.biligame.com
