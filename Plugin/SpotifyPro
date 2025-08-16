@@ -4,7 +4,7 @@
 #!date = 2025-08-16
 
 [Argument]
-tab = switch, false, true, tag = 底栏创建
+tab = switch, true, false, tag = 底栏创建
 useractivity = switch, true, false, tag = 设备接力
 
 [Rewrite]
